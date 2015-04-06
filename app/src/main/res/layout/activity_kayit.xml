@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    >
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/linearlayout_bg"
+        android:gravity="right"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <EditText
+            android:id="@+id/et_ad_kayit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/edittext_top_bg"
+            android:drawableLeft="@drawable/email"
+            android:ems="10"
+            android:hint="Kullanıcı Adı"
+            android:inputType="textEmailAddress"
+            android:textColorHint="#bbbbbb" />
+
+        <EditText
+            android:id="@+id/et_email_kayit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/edittext_default_bg"
+            android:drawableLeft="@drawable/password"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textPassword"
+            android:textColorHint="#bbbbbb" />
+
+        <EditText
+            android:id="@+id/et_sifre_kayit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/edittext_bottom_bg"
+            android:drawableLeft="@drawable/password"
+            android:ems="10"
+            android:hint="Şifre"
+            android:inputType="textPassword"
+            android:textColorHint="#bbbbbb" />
+
+        <Button
+            android:id="@+id/btn_kayit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:background="@drawable/button_default_bg"
+            android:padding="10dp"
+            android:text="Kaydol" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

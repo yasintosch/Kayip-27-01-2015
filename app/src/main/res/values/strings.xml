@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Kayip-27-01-2015</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string-array name="kayipturu">
+        <item>İnsan</item>
+        <item>Hayvan</item>
+        <item>Eşya</item>
+
+    </string-array>
+    <string-array name="ilanturu">
+        <item>Kayip</item>
+        <item>Bulundu</item>
+
+    </string-array>
+
+</resources>

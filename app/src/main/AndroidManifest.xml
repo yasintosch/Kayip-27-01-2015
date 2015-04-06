@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.yasintosh.kayip_27_01_2015" >
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <application
+        android:name="com.example.yasintosh.kayip_27_01_2015.app.AppController"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".Giris"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:label="Hesap Açma"
+            android:name=".Kayit">
+
+        </activity>
+
+        <activity
+            android:label="Main"
+            android:name=".Main">
+
+        </activity>
+        <activity
+            android:label="Anasayfa"
+            android:name=".tablar.Anasayfa">
+
+        </activity>
+        <activity
+            android:label="Profil"
+            android:name=".tablar.Profil">
+
+        </activity>
+        <activity
+            android:label="İlan ver"
+            android:name=".tablar.IlanVer">
+
+
+        </activity>
+        <activity
+            android:label="İlan Detay"
+            android:name=".IlanDetay">
+
+
+        </activity>
+
+    </application>
+
+</manifest>
