@@ -1,30 +1,28 @@
 package com.example.yasintosh.kayip_27_01_2015.tablar;
-import java.util.ArrayList;
-import java.util.List;
+
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.res.Resources;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.ListView;
+
+import com.example.yasintosh.kayip_27_01_2015.Constants;
+import com.example.yasintosh.kayip_27_01_2015.IlanDetay;
+import com.example.yasintosh.kayip_27_01_2015.R;
+import com.example.yasintosh.kayip_27_01_2015.model.Ilan;
+import com.example.yasintosh.kayip_27_01_2015.util.CustomAdapter;
+import com.example.yasintosh.kayip_27_01_2015.util.JSONParser;
 
 import org.apache.http.NameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.ListView;
-
-import com.android.volley.Response;
-import com.android.volley.toolbox.ImageRequest;
-import com.example.yasintosh.kayip_27_01_2015.Constants;
-import com.example.yasintosh.kayip_27_01_2015.util.CustomAdapter;
-import com.example.yasintosh.kayip_27_01_2015.model.Ilan;
-import com.example.yasintosh.kayip_27_01_2015.IlanDetay;
-import com.example.yasintosh.kayip_27_01_2015.util.JSONParser;
-import com.example.yasintosh.kayip_27_01_2015.R;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by yasin on 3.2.2015.
@@ -68,11 +66,14 @@ public class Anasayfa extends Activity {
 
         intentim.putExtra("baslik", tempValues.getBaslik());
         intentim.putExtra("aciklama", tempValues.getAciklama());
-        intentim.putExtra("iletisim", tempValues.getIletisim());
+        intentim.putExtra("telefon", tempValues.getTelefon());
+        intentim.putExtra("email", tempValues.getEmail());
         intentim.putExtra("kayipturu", tempValues.getKayipturu());
         intentim.putExtra("ilanturu", tempValues.getIlanturu());
         intentim.putExtra("tarih", tempValues.getTarih());
         intentim.putExtra("konum", tempValues.getKonum());
+        intentim.putExtra("longkonum", tempValues.getLongkonum());
+        intentim.putExtra("latkonum", tempValues.getLatkonum());
         intentim.putExtra("image_url", tempValues.getImage_url());
 
         startActivity(intentim);
@@ -123,16 +124,18 @@ public class Anasayfa extends Activity {
                         String kid = c.getString(Constants.TAG_KID);
                         String baslik = c.getString(Constants.TAG_BASLIK);
                         String aciklama = c.getString(Constants.TAG_ACIKLAMA);
-                        String iletisim = c.getString(Constants.TAG_ILETISIM);
+                        String telefon = c.getString(Constants.TAG_TELEFON);
+                        String email = c.getString(Constants.TAG_EMAIL);
                         String kayipturu = c.getString(Constants.TAG_KAYIPTURU);
                         String ilanturu = c.getString(Constants.TAG_ILANTURU);
                         String tarih = c.getString(Constants.TAG_TARİH);
                         String konum=c.getString(Constants.TAG_KONUM);
+                        String longkonum = c.getString(Constants.TAG_KONUM_LONG);
+                        String latkonum = c.getString(Constants.TAG_KONUM_LAT);
                        String image_url= c.getString(Constants.TAG_IMAGE_URL);
 
 
-
-                        Ilan ilan =new Ilan(Integer.parseInt(iid),Integer.parseInt(kid),baslik,aciklama,iletisim,kayipturu,ilanturu,tarih,konum,image_url);
+                        Ilan ilan = new Ilan(Integer.parseInt(iid), Integer.parseInt(kid), baslik, aciklama, telefon, email, kayipturu, ilanturu, tarih, konum, longkonum, latkonum, image_url);
                         // adding HashList to ArrayList
                         CustomListViewValuesArr.add(ilan);
 

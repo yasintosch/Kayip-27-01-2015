@@ -1,27 +1,28 @@
 package com.example.yasintosh.kayip_27_01_2015;
 
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.content.Intent;
-import android.view.View;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.example.yasintosh.kayip_27_01_2015.util.JSONParser;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
-import android.util.Log;
-
-import com.example.yasintosh.kayip_27_01_2015.util.JSONParser;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Giris extends Activity {
 
@@ -88,7 +89,7 @@ public class Giris extends Activity {
         protected String doInBackground(String... args) {
             String email = inputemail.getText().toString();
             String sifre = inputsifre.getText().toString();
-
+            String sonuc = null;
 
             // Building Parameters
             List<NameValuePair> params = new ArrayList<NameValuePair>();
@@ -116,26 +117,41 @@ public class Giris extends Activity {
                     // closing this screen
                     finish();
                 } else {
+                    Log.d("Create Response", json.toString());
+                    sonuc = json.getString("message");
+                    return sonuc;
                     // failed to create product
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
-            return null;
+            return sonuc;
         }
 
         /**
          * After completing background task Dismiss the progress dialog
          * **/
-        protected void onPostExecute(String file_url) {
+        protected void onPostExecute(String sonuc) {
             // dismiss the dialog once done
+            showAlert(sonuc);
             pDialog.dismiss();
         }
 
     }
 
-
+    private void showAlert(String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(message).setTitle("Server Yanıtı")
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // do nothing
+                    }
+                });
+        AlertDialog alert = builder.create();
+        alert.show();
+    }
 
 
 

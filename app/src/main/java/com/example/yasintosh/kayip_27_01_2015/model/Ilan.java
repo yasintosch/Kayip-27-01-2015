@@ -10,42 +10,37 @@ public class Ilan {
     private int kid;
     private String baslik;
     private String aciklama;
-    private String iletisim;
+    private String telefon;
+    private String email;
     private String kayipturu;
     private String ilanturu;
     private String tarih;
     private String konum;
+    private String longkonum;
+    private String latkonum;
     private String image_url;
     public Ilan() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-    public Ilan(int iid, int kid, String baslik, String aciklama, String iletisim, String kayipturu, String ilanturu, String tarih, String konum) {
+    public Ilan(int iid, int kid, String baslik, String aciklama, String telefon, String email, String kayipturu, String ilanturu, String tarih, String konum, String longkonum, String latkonum, String image_url) {
         this.iid = iid;
         this.kid = kid;
         this.baslik = baslik;
         this.aciklama = aciklama;
-        this.iletisim = iletisim;
+        this.telefon = telefon;
+        this.email = email;
         this.kayipturu = kayipturu;
         this.ilanturu = ilanturu;
         this.tarih = tarih;
         this.konum = konum;
+        this.longkonum = longkonum;
+        this.latkonum = latkonum;
+        this.image_url = image_url;
     }
 
 
-    public Ilan(int iid, int kid, String baslik, String aciklama, String iletisim, String kayipturu, String ilanturu, String tarih, String konum,String image) {
-        this.iid = iid;
-        this.kid = kid;
-        this.baslik = baslik;
-        this.aciklama = aciklama;
-        this.iletisim = iletisim;
-        this.kayipturu = kayipturu;
-        this.ilanturu = ilanturu;
-        this.tarih = tarih;
-        this.konum = konum;
-        this.image_url=image;
-    }
 
     public Ilan(int iid, String baslik, String aciklamama, String tarih) {
         this.iid = iid;
@@ -70,6 +65,38 @@ public class Ilan {
         this.kid = kid;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefon() {
+        return telefon;
+    }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
+
+    public String getLongkonum() {
+        return longkonum;
+    }
+
+    public void setLongkonum(String longkonum) {
+        this.longkonum = longkonum;
+    }
+
+    public String getLatkonum() {
+        return latkonum;
+    }
+
+    public void setLatkonum(String latkonum) {
+        this.latkonum = latkonum;
+    }
+
     public String getBaslik() {
         return baslik;
     }
@@ -84,13 +111,6 @@ public class Ilan {
 
     public void setAciklama(String aciklamama) {
         this.aciklama = aciklamama;
-    }
-    public String getIletisim() {
-        return iletisim;
-    }
-
-    public void setIletisim(String iletisim) {
-        this.iletisim = iletisim;
     }
 
     public String getTarih() {

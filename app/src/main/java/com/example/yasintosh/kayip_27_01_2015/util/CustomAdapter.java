@@ -3,7 +3,6 @@ package com.example.yasintosh.kayip_27_01_2015.util;
 /**
  * Created by yasin on 7.2.2015.
  */
-import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,7 +13,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.ImageLoader;
@@ -23,6 +21,8 @@ import com.example.yasintosh.kayip_27_01_2015.R;
 import com.example.yasintosh.kayip_27_01_2015.app.AppController;
 import com.example.yasintosh.kayip_27_01_2015.model.Ilan;
 import com.example.yasintosh.kayip_27_01_2015.tablar.Anasayfa;
+
+import java.util.ArrayList;
 
 
 public class CustomAdapter extends BaseAdapter   implements OnClickListener {
@@ -34,7 +34,6 @@ public class CustomAdapter extends BaseAdapter   implements OnClickListener {
     Ilan tempValues=null;
     int i=0;
     ImageLoader imageLoader = AppController.getInstance().getImageLoader();
-
     public CustomAdapter(Activity a, ArrayList d,Resources resLocal) {
 
         /********** Take passed values **********/
@@ -117,11 +116,16 @@ public class CustomAdapter extends BaseAdapter   implements OnClickListener {
             holder.baslik.setText( tempValues.getBaslik() );
             holder.tarih.setText( tempValues.getTarih() );
             holder.aciklama.setText( tempValues.getAciklama() );
+            try {
+                if (!tempValues.getImage_url().equals(null)) {
+                    holder.image.setImageUrl(tempValues.getImage_url().replaceAll("-", "/"), imageLoader);
+                } else {
+                    holder.image.setDefaultImageResId(R.drawable.no_photo);
+                }
+            } catch (Exception e) {
+                holder.image.setDefaultImageResId(R.drawable.no_photo);
+            }
 
-            if(!tempValues.getImage_url().equals(null)){
-            holder.image.setImageUrl(tempValues.getImage_url().replaceAll("-","/"), imageLoader);}
-            else{
-               holder.image.setDefaultImageResId(R.drawable.no_photo);}
 
             /******** Set Item Click Listner for LayoutInflater for each row *******/
 

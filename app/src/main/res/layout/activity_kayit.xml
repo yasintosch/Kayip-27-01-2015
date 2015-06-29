@@ -21,10 +21,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:background="@drawable/edittext_top_bg"
-            android:drawableLeft="@drawable/email"
+            android:drawableLeft="@drawable/user"
             android:ems="10"
             android:hint="Kullanıcı Adı"
-            android:inputType="textEmailAddress"
             android:textColorHint="#bbbbbb" />
 
         <EditText
@@ -33,10 +32,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:background="@drawable/edittext_default_bg"
-            android:drawableLeft="@drawable/password"
+            android:drawableLeft="@drawable/email"
             android:ems="10"
             android:hint="Email"
-            android:inputType="textPassword"
+            android:inputType="textEmailAddress"
             android:textColorHint="#bbbbbb" />
 
         <EditText
